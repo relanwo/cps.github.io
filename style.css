@@ -691,14 +691,20 @@ body {
   min-height: 100%;
   min-height: -webkit-max-content;
   min-height: -moz-max-content;
-  min-height: max-content; }
+  min-height: max-content;
+  height: 100%;
+  overflow-x: hidden; }
+
+@media (max-width: 767px) {
+  ::-webkit-scrollbar {
+    width: 0; } }
 
 @media (min-width: 1440px) {
   body {
     flex-direction: row; } }
 
-.main {
-  overflow-y: hidden; }
+.body::-webkit-scrollbar {
+  width: 0; }
 
 .overlay--active {
   z-index: 1;
@@ -728,17 +734,18 @@ button {
 
 .sidenav-container {
   min-width: 272px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  position: fixed; }
 
 .sidenav {
   display: none;
   z-index: 2;
-  max-width: 320px;
   position: fixed;
   top: 0;
   left: 0;
   background-color: #FFFFFF;
   min-height: 100%;
+  min-width: 320px;
   width: 100%;
   padding: 0 16px;
   box-shadow: 16px 0px 52px 0px rgba(14, 24, 80, 0.2), -2px 0px 4px 0px rgba(69, 79, 126, 0.02); }
@@ -761,7 +768,8 @@ button {
     box-shadow: unset; } }
 
 .sidenav--active {
-  display: flex; }
+  display: flex;
+  position: fixed; }
 
 .sidenav-header__ul {
   display: flex;
@@ -807,11 +815,11 @@ button {
     color: #1b1c21;
     display: block; }
     .sidenav-menu__link:hover {
-      font-size: 1.1em; }
-    .sidenav-menu__link:focus {
-      color: #7e7e82;
-      position: relative; }
-      .sidenav-menu__link:focus::before {
+      font-size: 1.05em; }
+    .sidenav-menu__link--active {
+      position: relative;
+      font-size: 1.05em; }
+      .sidenav-menu__link--active::before {
         position: absolute;
         top: -6px;
         left: -24px;
@@ -844,10 +852,11 @@ button {
 
 @media (min-width: 768px) {
   .sidenav-footer {
-    margin: 240px 0 0 0;
+    margin: 100px 0 0 0;
     margin-bottom: auto; } }
 
 .email {
+  display: block;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: -0.2px;
@@ -855,6 +864,7 @@ button {
   margin: 0 0 12px 0; }
 
 .phone {
+  display: block;
   font-weight: 700;
   font-size: 24px;
   letter-spacing: -0.6px;
@@ -1221,7 +1231,8 @@ button {
     height: 40px;
     width: 40px; }
   .brands-slider__pagination {
-    position: relative; }
+    position: relative;
+    z-index: 0; }
   .brands-slider__dropdown {
     display: none;
     font-weight: 500;
@@ -1340,7 +1351,8 @@ button {
   margin: -56px 0 0 0; }
 
 .swiper-pagination {
-  position: relative; }
+  position: relative;
+  z-index: 0; }
 
 @media (min-width: 768px) {
   .tech-slider {
@@ -1604,8 +1616,11 @@ button {
   width: 100%;
   position: fixed;
   right: 0; }
-  .modal__cross::before {
-    content: url(./static/cross.png); }
+  .modal__cross {
+    position: relative;
+    top: 24px; }
+    .modal__cross::before {
+      content: url(./static/cross.png); }
   .modal__submit {
     font-weight: 700;
     font-size: 12px;
@@ -1619,7 +1634,8 @@ button {
     border-radius: 16px;
     display: flex;
     justify-content: space-around;
-    align-items: center; }
+    align-items: center;
+    margin-left: auto; }
   .modal__icon::before {
     content: url(./static/price-arrow--white.png); }
 
@@ -1641,9 +1657,12 @@ button {
   padding: 24px 16px;
   z-index: 2; }
 
+.form {
+  margin-top: 64px; }
+
 .form__header::before {
   position: absolute;
-  top: 81px;
+  top: 145px;
   left: 0px;
   border-radius: 0 3px 3px 0;
   content: "";
@@ -1667,6 +1686,17 @@ button {
   width: 100%;
   margin: 0 0 1em 0;
   resize: none; }
+
+@media (min-width: 1440px) {
+  .form {
+    margin-top: 0; }
+    .form__header::before {
+      position: absolute;
+      top: 39px; }
+  .modal__cross {
+    position: absolute;
+    left: -72px;
+    top: 39px; } }
 
 
 /*# sourceMappingURL=style.css.map*/
