@@ -806,7 +806,7 @@ button {
     margin-bottom: 0; }
   .sidenav-menu__li {
     display: block;
-    margin: 0 0 32px 0; }
+    padding: 8px; }
     .sidenav-menu__li:active {
       color: #7e7e82;
       position: relative; }
