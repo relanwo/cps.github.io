@@ -735,7 +735,10 @@ button {
 .sidenav-container {
   min-width: 272px;
   margin: 0 auto;
-  position: fixed; }
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
 
 .sidenav {
   display: none;
@@ -775,7 +778,6 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 0 45px 0;
   padding: 0; }
 
 .sidenav-header__logo {
@@ -800,7 +802,8 @@ button {
 .sidenav-menu {
   flex-grow: 1; }
   .sidenav-menu__ul {
-    padding: 0; }
+    padding: 0;
+    margin-bottom: 0; }
   .sidenav-menu__li {
     display: block;
     margin: 0 0 32px 0; }
@@ -849,11 +852,6 @@ button {
     content: url(./static/chat.png); }
   .sidenav-footer__profile::before {
     content: url(./static/profile.png); }
-
-@media (min-width: 768px) {
-  .sidenav-footer {
-    margin: 100px 0 0 0;
-    margin-bottom: auto; } }
 
 .email {
   display: block;
